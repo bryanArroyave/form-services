@@ -4,14 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon -L src/index.ts",
+    "dev": "nodemon -L src/index.ts --inspect 0.0.0.0:9229 --watch server src/index.ts",
     "ts:node": "ts-node src/index.ts",
     "watch": "tsc -w && node dist/.",
     "clean": "del dist",
     "start": "node src/index.ts",
     "prettier:base": "prettier --parser typescript --single-quote",
-    "prettier:check": "npm run prettier:base -- --list-different \"src/**/*.{ts,tsx}\"",
-    "prettier:write": "npm run prettier:base -- --write \"src/**/*.{ts,tsx}\""
+    "prettier:write": "npm run prettier:base -- --write \"src/**/*.{ts,tsx}\"",
+    "docker:dev": "docker-compose stop && docker-compose build && docker-compose up",
+    "start-debug": "nodemon -L --inspect=0.0.0.0:9229 src/index.ts --debug:9229"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +22,8 @@
     "date-fns": "^2.25.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "express-edge": "^2.0.2",
+    "express-handlebars": "^5.3.4",
     "mongoose": "^5.13.8"
   },
   "devDependencies": {

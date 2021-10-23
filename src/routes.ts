@@ -3,7 +3,7 @@ import FormRoute from './useCases/form/routes';
 
 const router: Router = Router();
 
-router.get('/', (req: Request, res: Response) => res.json({ msg: 'ok' }));
+router.get('/', (req: Request, res: Response) => res.render('home'));
 router.use('/form', FormRoute);
 
 export default router;

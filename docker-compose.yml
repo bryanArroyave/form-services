@@ -4,11 +4,15 @@ services:
   backapp:
     container_name: backapp
     restart: always
-    build: .
+    build:
+      context: ./
+      target: debug
     environment:
       NODE_ENV: dev
     ports:
       - '5000:3000'
+      - 9229:9229
+    command: npm run start-debug
     links:
       - db
     volumes:
@@ -19,5 +23,8 @@ services:
     restart: always
     ports:
       - '27018:27017'
+    volumes:
+      - ./mongo-volume:/data/db
+
     logging:
       driver: none

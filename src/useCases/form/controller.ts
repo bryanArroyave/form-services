@@ -3,7 +3,7 @@ import FormService from './service';
 
 const getAll = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const payload = FormService.getAll();
+    const payload = await FormService.getAll();
     return res.json({ error: false, payload });
   } catch (error) {
     next(error);

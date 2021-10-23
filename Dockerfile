@@ -1,4 +1,4 @@
-FROM node:14
+FROM node:14 as debug
 
 RUN mkdir -p /usr/src/app
 
@@ -12,5 +12,4 @@ COPY . .
 
 EXPOSE 3000
 
-CMD ["npm","run", "dev"]
-
+# CMD [ "npm", "run" , "start-debug" ]

@@ -1,8 +1,16 @@
-const getAll = () => {
-  return 'ok';
+import model from './model';
+
+const getAll = async () => {
+  const data = await model.create({
+    title: 'String',
+    body: 'String',
+  });
+  console.log(data);
+
+  return data;
 };
 const get = (id: string | number) => {
-  return id;
+  return model.find({});
 };
 const create = () => {
   return 'ok';
